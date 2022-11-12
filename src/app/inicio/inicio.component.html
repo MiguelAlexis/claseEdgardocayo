@@ -1,0 +1,85 @@
+<p>miguel velasquez</p>
+<div class="container">
+    <div>
+        <h1>Formulario</h1>
+    </div>
+    <form [formGroup]="formulario">
+<div class="form-group">
+<div>
+    <label>Nombre</label>
+    <input 
+    type="text"
+    placeholder="Ingresa tu Nombre"
+    formControlName ="Nombre"
+    required
+>
+<small *ngIf="formularioReactivo.nombre?.errors?.required && formularioReactivo.nombre.touched">
+    El nombre es requerido
+</small>
+<small *ngIf=" formularioReactivo.nombre?.error?.minlength">
+    El nombre debe contener al menos 4 caracteres
+</small>
+</div>
+</div>
+</form>
+<div class="form-group">
+    <div>
+        <label>Apellido</label>
+    <input 
+    type="text"
+    placeholder="Ingresa tu Apellido"
+    formControlName="Apellido"
+    required
+    >
+<small *ngIf=" formularioReactivo.apellido?.errors?.required && formularioReactivo.apellido.touched ">
+    El Apellido es requerido
+</small>
+<small *ngIf=" formularioReactivo.apellido?.errors?.minlength ">
+    El apellido debe contener al menos 4 caracteres
+</small>
+    </div>
+</div>
+</div>
+<div class="form-group">
+    <div>
+        <label>Edad</label>
+        <input
+        type="text"
+        placeholder="Ingresa tu Edad"
+        formControlName = "Edad"
+        required
+    >
+    <small *ngIf=" formularioReactivo.edad?.error?.required && formularioReactivo.edad.touched">
+        La edad es requerida
+    </small>
+    <small *ngIf=" formularioReactivo.edad?.error?.min">
+        La edad ser mayor de 4 años
+    </small>
+    </div>
+</div>
+
+<div class="form-group">
+    <div>
+        <label>Email</label>
+        <input 
+        type="texyt"
+        placeholder="Ingresa tu Email"
+        formControlName="email"
+        required
+    >
+    <small *ngIf="formularioReactivo.email?.error?.required && formularioReactivo.email.touched">
+        El email es requerido
+    </small>
+    </div>
+</div>
+
+<div class="form-group">
+    <div>
+        <button
+        class="btn btn-primary"
+        type="submit"
+        (click)="botonEnviar()"
+        [disabled]="!formulario.valid"
+        >enviar</button>
+    </div>
+</div>
